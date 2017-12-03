@@ -3,6 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
+
+import Icon from 'vue-svg-icon/Icon.vue'
+Vue.component('icon', Icon);
+
+import '@/assets/css/reset.css'
+import '@/assets/css/style.css'
+import '@/assets/css/mymixin.scss'
 
 Vue.config.productionTip = false
 
@@ -10,6 +18,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
