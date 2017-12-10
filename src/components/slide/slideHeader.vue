@@ -3,18 +3,18 @@
         <header>
             <div class='fly'>
                 <a>
-                    <img src='../assets/duck.jpeg'/>
+                    <img src='../../assets/duck.jpeg'/>
                     <!-- <icon name="cart" scale="20"></icon> -->
                     <!-- <icon name='kvell' scale='20'></icon> -->
                 </a>
             </div>
             <div class='top-button menu-button'>
-                <button>
+                <router-link tag='button' :to='{name: "index"}'>
                     <span class='icon'>
                         <span class='fake-icon'></span>
                     </span>
                     <span class='title'>Menu</span>
-                </button>
+                </router-link>
             </div>
             <div class='top-button cart-button'>
                 <button>
@@ -56,6 +56,7 @@ export default {
             a{
                 transition: all .6s cubic-bezier(.4,0,0,1);
                 display: inline-block;
+                pointer-events: auto;
                 &:hover{
                     transform: translateY(15%);
                 }

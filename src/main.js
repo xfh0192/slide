@@ -9,8 +9,13 @@ import Icon from 'vue-svg-icon/Icon.vue'
 Vue.component('icon', Icon);
 
 import '@/assets/css/reset.css'
-import '@/assets/css/style.css'
 import '@/assets/css/mymixin.scss'
+import '@/assets/css/style.scss'
+
+// element-ui
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
@@ -20,5 +25,6 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  render: h => h(App)
 })

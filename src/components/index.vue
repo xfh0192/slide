@@ -1,22 +1,21 @@
 <template>
     <div id='index'>
-        <div class='main'>
-            <slide-header></slide-header>
-            <div class='content'>
-                <middle-slogan></middle-slogan>
-                <slideBottom></slideBottom>
-                <slider></slider>
-            </div>
-        </div>
-        
+        <el-container>
+            <el-header>
+                <index-header/>
+            </el-header>
+            <el-main>
+                <menus/>
+            </el-main>
+        </el-container>
+        <left-gallery/>
     </div>
 </template>
 
 <script>
-import slideHeader from './slideHeader'
-import middleSlogan from './middleSlogan'
-import slideBottom from './slideBottom'
-import slider from './slider'
+import indexHeader from './index/indexHeader.vue'
+import Menus from './index/menus.vue'
+import leftGallery from './index/leftGallery.vue'
 
 export default {
     name: 'index',
@@ -26,20 +25,22 @@ export default {
         }
     },
     components:{
-        slideHeader,
-        middleSlogan,
-        slideBottom,
-        slider
+        indexHeader,
+        Menus,
+        leftGallery
     }
 }
 </script>
 
 <style lang="scss" scoped>
 #index{
-    .main div.content{
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
+    .el-container{
+        text-align: center;
+        margin: 30px auto;
+        .el-header{
+
+        }
     }
 }
+
 </style>

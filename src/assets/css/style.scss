@@ -1,3 +1,7 @@
+
+$normal-blue: #39c;
+
+
 html{
     font-family: FarnhamDisplay,serif;
     font-size: 1em;
@@ -7,6 +11,8 @@ html{
 }
 button{
     -webkit-appearance: none;
+    border: none;
+    line-height: 0;
 }
 button:focus{
     outline: none;
@@ -20,4 +26,11 @@ a{
 }
 a:hover{
     text-decoration: none;
+}
+a:focus, a:visited{
+    color: $normal-blue;
+}
+
+span{
+    white-space: nowrap;
 }

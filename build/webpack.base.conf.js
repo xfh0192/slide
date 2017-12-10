@@ -72,26 +72,26 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.(css|scss)$/,
-        // use: ['style-loader', 'css-loader', 'sass-loader', 'scss-loader',{
-        //   loader: 'sass-resources-loader',
-        //   options: {
-        //     // Provide path to the file with resources
-        //     // resources: './path/to/resources.scss',
-        //     // Or array of paths
-        //     // resources: ['./path/to/vars.scss', './path/to/mixins.scss']
-        //     resources: ['./src/assets/css/*.scss']
-        //   }
-        // }]
-        // loader: ['style', 'css', 'sass'],
-          use: [
-            { loader: "style-loader" },
-            { loader: "css-loader" },
-            { loader: "sass-loader" }
-        ]
       }
+      // {
+      //   test: /\.(css|scss)$/,
+      //   // use: ['style-loader', 'css-loader', 'sass-loader', 'scss-loader',{
+      //   //   loader: 'sass-resources-loader',
+      //   //   options: {
+      //   //     // Provide path to the file with resources
+      //   //     // resources: './path/to/resources.scss',
+      //   //     // Or array of paths
+      //   //     // resources: ['./path/to/vars.scss', './path/to/mixins.scss']
+      //   //     resources: ['./src/assets/css/*.scss']
+      //   //   }
+      //   // }]
+      //   // loader: ['style', 'css', 'sass'],
+      //     use: [
+      //       { loader: "style-loader" },
+      //       { loader: "css-loader" },
+      //       { loader: "sass-loader" }
+      //   ]
+      // }
     ]
   }
 }
