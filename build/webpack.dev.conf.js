@@ -51,6 +51,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
+const express = require('express')
+const app = express()
+
+app.use('/api', function(err, req, res){
+    if (err) {
+        console.log(err)
+        return
+    }
+    console.log('hello')
+    res.send('hello')
+})
+
+
+
+
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
   portfinder.getPort((err, port) => {

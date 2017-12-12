@@ -10,7 +10,14 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    // proxyTable: {},
+    // 下面是将所有请求转发到3000端口的本地服务器上面
+    // 本地服务器，express写一个在别的地方！！棒！！
+    proxyTable: {
+      '/': {
+        target: 'http://localhost:3000/'
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

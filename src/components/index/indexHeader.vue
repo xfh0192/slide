@@ -27,6 +27,7 @@ export default {
         text-align: center;
         position: relative;
         cursor: pointer;
+        background: #fff;
         span{
             position: absolute;
             top: 50%;
@@ -40,7 +41,7 @@ export default {
             stroke-dasharray: 520px;
             stroke-width: 2px;
             stroke: #ccc;
-            transform-origin: 50%;
+            // transform-origin: 50%;
             animation: draw 1.4s ease infinite;
         }
     }

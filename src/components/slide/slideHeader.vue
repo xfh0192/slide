@@ -17,7 +17,7 @@
                 </router-link>
             </div>
             <div class='top-button cart-button'>
-                <button>
+                <button @click='send'>
                     <span class='icon'>
                         <icon name='cart' scale='10'></icon>
                     </span>
@@ -29,11 +29,18 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'slideHeader',
     data () {
         return {
 
+        }
+    },
+    methods: {
+        send () {
+            axios.get('/api').then((rsp) => console.log(rsp))
         }
     }
 }

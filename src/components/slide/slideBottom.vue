@@ -1,6 +1,6 @@
 <template>
     <div id='slide-bottom'>
-        <div class='discover'>
+        <div class='discover' @click='send'>
             <span>
                 <a>Discover</a>
             </span>
@@ -10,11 +10,18 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'slideBottom',
     data(){
         return {
 
+        }
+    },
+    methods: {
+        send () {
+            axios.get('/api/hi').then(rsp => console.log(rsp))
         }
     }
 }
