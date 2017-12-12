@@ -29,7 +29,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import slideService from '@/assets/js/request.js'
 
 export default {
     name: 'slideHeader',
@@ -40,7 +41,9 @@ export default {
     },
     methods: {
         send () {
-            axios.get('/api').then((rsp) => console.log(rsp))
+            // axios.get('/api').then((rsp) => console.log(rsp))
+            slideService.request('/api', 'get')
+            .then(rsp => console.log(rsp))
         }
     }
 }
