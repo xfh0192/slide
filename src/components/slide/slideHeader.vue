@@ -3,7 +3,7 @@
         <header>
             <div class='fly'>
                 <a>
-                    <img src='../../assets/duck.jpeg'/>
+                    <img src='../../assets/image/duck.jpeg'/>
                     <!-- <icon name="cart" scale="20"></icon> -->
                     <!-- <icon name='kvell' scale='20'></icon> -->
                 </a>
@@ -30,7 +30,7 @@
 
 <script>
 // import axios from 'axios'
-import slideService from '@/assets/js/request.js'
+import {getApi} from '@/assets/js/service.js'
 
 export default {
     name: 'slideHeader',
@@ -42,7 +42,7 @@ export default {
     methods: {
         send () {
             // axios.get('/api').then((rsp) => console.log(rsp))
-            slideService.request('/api', 'get')
+            getApi('/api', 'get')
             .then(rsp => console.log(rsp))
         }
     }

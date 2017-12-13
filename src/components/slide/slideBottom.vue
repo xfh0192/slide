@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios'
+import {postData} from '@/assets/js/service'
 
 export default {
     name: 'slideBottom',
@@ -20,8 +21,12 @@ export default {
         }
     },
     methods: {
-        send () {
-            axios.get('/api/hi').then(rsp => console.log(rsp))
+        async send () {
+            // axios.get('/api/hi').then(rsp => console.log(rsp))
+            let data = {
+                name: 'this is post'
+            }
+            let res = await postData(data)
         }
     }
 }

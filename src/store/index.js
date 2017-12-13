@@ -7,9 +7,9 @@ export default new Vuex.Store({
     state: {
         sliderIndex: 1,
         sliderArr: [
-            {url: require('@/assets/slider-1.jpg')},
-            {url: require('@/assets/slider-2.jpg')},
-            {url: require('@/assets/slider-3.jpg')}
+            {url: require('@/assets/image/slider-1.jpg')},
+            {url: require('@/assets/image/slider-2.jpg')},
+            {url: require('@/assets/image/slider-3.jpg')}
         ]
     },
     getters: {
