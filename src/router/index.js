@@ -22,6 +22,16 @@ let router = new Router({
       path: '/slider',
       name: 'sliderWrapper',
       component: sliderWrapper
+    },
+    {
+      path: '/animate',
+      name: 'animate',
+      component: () => import('../components/animate/wrapper')
+    },
+    {
+      path: '/css/demo',
+      name: 'cssDemo',
+      component: () => import('../components/cssDemo/wrapper')
     }
   ]
 })

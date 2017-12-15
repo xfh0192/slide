@@ -54,10 +54,10 @@ export const getStyle = (element, attr, NumberMode = 'int') => {
     }
 
     // 在获取 opactiy 时需要获取小数 parseFloat
-    if (attr == 'opacity') {
-        return NumberMode == 'float'? parseFloat(target) : parseInt(target);
-    }
-    return target;
+    // if (attr == 'opacity') {
+    //     return NumberMode == 'float'? parseFloat(target) : parseInt(target);
+    // }
+    return target
 }
 
 /**
@@ -72,12 +72,12 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
     clearInterval(element.timer);
 
     // 先深拷贝
-    let target = _clone(target, true);
+    target = _.clone(target, true);
 
     // 获取dom样式
     const attrStyle = attr => {
         if (attr == 'opacity') {
-            return Math.round(getStyle(element, attr, 'float') * 100)
+            return Math.round(parseInt(getStyle(element, attr, 'float')) * 100)
         } else {
             return getStyle(element, attr)
         }
@@ -113,15 +113,24 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
     element.timer = setInterval(() => {
         Object.keys(target).forEach(attr => {
             let iSpeed = 0  //步长
-            let iCurrent = attrStyle(attr) || 0 // 当前元素属性值
+            let iCurrent = parseInt(attrStyle(attr)) || 0 // 当前元素属性值
             let speedBase = 0   // 目标点需要减去的基础值，三种运动状态的值不同
             let intervalTime    // 将目标值分为多少步执行
+            let status = false  // 是否仍需运动
             switch (mode) {
                 case 'ease-out':
                     speedBase = iCurrent
                     intervalTime = duration*5/400
                     break;
-            
+                case 'linear':
+                    speedBase = initState[attr];
+                    intervalTime = duration*20/400;
+                    break;
+                case 'ease-in':
+                    let oldspeed = rememberSpeed[attr] || 0;
+                    iSpeed = oldspeed + (target[attr] - initState[attr])/duration;
+                    rememberSpeed[attr] = iSpeed
+                    break;
                 default:
                     speedBase = iCurrent
                     intervalTime = duration*5/400
@@ -137,6 +146,12 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
             switch (mode) {
                 case 'ease-out':
                     status = iCurrent != target[attr]
+                    break;
+                case 'linear':
+                    status = Math.abs(Math.abs(iCurrent) - Math.abs(target[attr])) > Math.abs(iSpeed);
+                    break;
+                case 'ease-in':
+                    status = Math.abs(Math.abs(iCurrent) - Math.abs(target[attr])) > Math.abs(iSpeed);
                     break;
                 default:
                     status = iCurrent != target[attr]

@@ -24,7 +24,9 @@ export default {
     data () {
         return {
             menus: [
-                {name: '轮播图', to: 'sliderWrapper'}
+                {name: '轮播图', to: 'sliderWrapper'},
+                {name: '动画', to: 'animate'},
+                {name: 'cssDemo', to: 'cssDemo'}
             ]
         }
     }
