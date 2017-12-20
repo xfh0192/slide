@@ -8,6 +8,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+// https://www.npmjs.com/package/node-bourbon
+var sass    = require('node-sass')
+var bourbon = require('node-bourbon');
+
+// console.log('node-bourbon-------------------------------' + bourbon.includePaths)
+
+// sass.render({
+//   file: 'bourbon',
+//   includePaths: [bourbon.includePaths]
+// });
+
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: false })
