@@ -42,8 +42,13 @@ export default {
     methods: {
         send () {
             // axios.get('/api').then((rsp) => console.log(rsp))
+
+            // https://www.cnblogs.com/winyh/p/7053054.html
             getApi('/api', 'get')
-            .then(rsp => console.log(rsp))
+            // 
+            .then(rsp => rsp.json())
+            // 
+            .then(data => console.log(data))
         }
     }
 }

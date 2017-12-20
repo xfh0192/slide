@@ -27,7 +27,9 @@ export default async (url = '', method = 'get', data = {}) => {
     if (window.fetch) {
         console.log('fetch is working')
         let requestConfig = {
-            // credentials: 'include',
+            // 带上cookie 
+            credentials: 'include',
+
             method: method,
             headers: {
                 'Accept': 'application/json',
@@ -48,11 +50,13 @@ export default async (url = '', method = 'get', data = {}) => {
         // https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API
         try {
             const response = await fetch(url, requestConfig)
-            const responseJson = await response.json()
-            console.log(responseJson)
-            return responseJson
+            console.log(response)
+            return response;
+            // const responseJson = await response.json()
+            // console.log(responseJson)
+            // return responseJson
         } catch (e) {
-            throw new Error(e)
+            throw new Error(e);
         }
     } else {
         return new Promise( (resolve, reject) => {
