@@ -26,7 +26,8 @@ export default {
             menus: [
                 {name: '轮播图', to: 'sliderWrapper'},
                 {name: '动画', to: 'animate'},
-                {name: 'cssDemo', to: 'cssDemo'}
+                {name: 'cssDemo', to: 'cssDemo'},
+                {name: 'sqlDemo', to: 'sqlDemo'}
             ]
         }
     }

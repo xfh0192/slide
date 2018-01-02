@@ -8,3 +8,7 @@ export const getApi = (query) => request('/api', 'get', {
 })
 
 export const postData = (data) => request('/post', 'post', data)
+
+export const getUsers = () => request('/sql/user/get', 'get')
+
+export const setUser = (data) => request('/sql/user/set', 'post', data)

@@ -27,6 +27,8 @@ export default {
                 name: 'this is post'
             }
             let res = await postData(data)
+            let json = await res.json();
+            console.log(json)
         }
     }
 }
