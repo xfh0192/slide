@@ -51,7 +51,7 @@ export default async (url = '', method = 'get', data = {}) => {
         try {
             const response = await fetch(url, requestConfig)
             console.log(response)
-            return response;
+            return response.json();
             // const responseJson = await response.json()
             // console.log(responseJson)
             // return responseJson
