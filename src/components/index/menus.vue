@@ -27,7 +27,8 @@ export default {
                 {name: '轮播图', to: 'sliderWrapper'},
                 {name: '动画', to: 'animate'},
                 {name: 'cssDemo', to: 'cssDemo'},
-                {name: 'sqlDemo', to: 'sqlDemo'}
+                {name: 'sqlDemo', to: 'sqlDemo'},
+                {name: 'fsDemo', to: 'fsDemo'}
             ]
         }
     }

@@ -37,6 +37,11 @@ let router = new Router({
       path: '/sql/demo',
       name: 'sqlDemo',
       component: () => import('../components/sqlDemo/wrapper')
+    },
+    {
+      path: '/fs/demo',
+      name: 'fsDemo',
+      component: () => import('../components/fsDemo/wrapper')
     }
   ]
 })

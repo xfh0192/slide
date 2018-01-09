@@ -156,17 +156,41 @@ export default {
             this.userData = res || []
         },
         async setUser(registData) {
+            // async/await 写法不好处理返回错误，因此用promise链(理解上一系列嵌套的异步操作，最后一环使用promise比较好控制)
+            // new Promise(function (resolve) {
+            //     let postData = {
+            //         name: 'default',
+            //         account: registData.account,
+            //         password: registData.password
+            //     }
+            //     resolve(postData)
+            // })
+            // .then(function (postData) {
+            //     return setUser(postData)
+            // })
+            // .then(function (res) {
+            //     console.log(res)
+            //     // 注册之后返回所有用户数据，
+            //     this.userData = res;
+            // })
+            // .catch(function (err) {
+            //     console.log(err)
+            // })
+            
+            // 或者，async/await 处理异步抛出的错误，使用try...catch...
             let postData = {
                 name: 'default',
                 account: registData.account,
                 password: registData.password
             }
-            let res = await setUser(postData)
-            // let data = await res.json()
-            console.log(res)
+            try {
+                let res = await setUser(postData)
+                this.userData = res
+                return;
+            } catch (err) {
+                console.log(err)
+            }
             
-            // 注册之后返回所有用户数据，
-            this.userData = res;
         }
     },
     mounted: async function () {
