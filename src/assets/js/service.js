@@ -14,3 +14,5 @@ export const getUsers = () => request('/sql/user/get', 'get')
 export const setUser = (data) => request('/sql/user/set', 'post', data)
 
 export const loginUser = (data) => request('/sql/user/login', 'post', data)
+
+export const setFile = (data) => request('/fs/file/set', 'post', data)
