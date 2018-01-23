@@ -28,7 +28,8 @@ export default {
                 {name: '动画', to: 'animate'},
                 {name: 'cssDemo', to: 'cssDemo'},
                 {name: 'sqlDemo', to: 'sqlDemo'},
-                {name: 'fsDemo', to: 'fsDemo'}
+                {name: 'fsDemo', to: 'fsDemo'},
+                {name: 'mongoLogin', to: 'mongoLogin'}
             ]
         }
     }

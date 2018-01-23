@@ -42,6 +42,22 @@ let router = new Router({
       path: '/fs/demo',
       name: 'fsDemo',
       component: () => import('../components/fsDemo/wrapper')
+    },
+    {
+      path: '/mongo/demo',
+      name: 'mongoLogin',
+      component: () => import('../components/loginDemo/wrapper'),
+      redirect: '/mongo/demo/login',
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+        },
+        {
+          path: 'regist',
+          name: 'regist',
+        }
+      ]
     }
   ]
 })
