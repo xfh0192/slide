@@ -23,14 +23,14 @@
 
         <div class='edit'>
             <ul>
-                <il>
+                <li>
                     <h2>文件名</h2>
                     <el-input
                         placeholder="请输入文件名"
                         v-model='fileName'
                         clearable>
                     </el-input>
-                </il>
+                </li>
                 <li>
                     <h2>文件内容</h2>
                     <el-input
@@ -40,8 +40,11 @@
                     </el-input>
                 </li>
                 <li>
-                    <el-button type='primary'>保存</el-button>
+                    <el-button type='primary' @click='setFile'>保存</el-button>
                     <el-button>清空</el-button>
+                </li>
+                <li>
+                    <el-button @click='getFile'>读取文件</el-button>
                 </li>
             </ul>
         </div>
@@ -53,25 +56,38 @@
 </template>
 
 <script>
-import {setFile} from '@/assets/js/service'
+import {setFile, getFile} from '@/assets/js/service'
 
 export default {
     data () {
         return {
             transferData: [],
-            tableData: []
+            tableData: [],
+            fileName: '',
+            content: ''
         }
     },
     methods: {
-        async saveFile () {
+        async setFile () {
             let postData = {
                 fileName: this.fileName,
                 content: this.content
             }
             try {
-                this.tableData = await this.setFile(postData)
+                this.tableData = await setFile(postData)
             } catch (err) {
-                conosle.log(err)
+                console.log(err)
+            }
+        },
+        async getFile () {
+            let data = {
+                fileName: this.fileName
+            }
+            try {
+                let res = await getFile(data);
+                this.content = res.content || '';
+            } catch (err) {
+                console.log(err)
             }
         }
     },

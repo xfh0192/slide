@@ -17,7 +17,10 @@ export const setUser = (data) => request('/sql/user/set', 'post', data)
 export const loginUser = (data) => request('/sql/user/login', 'post', data)
 
 // fs
+// 写入新文件（如有文件，则覆盖）
 export const setFile = (data) => request('/fs/file/set', 'post', data)
+// 获取某一个文件
+export const getFile = (data) => request('/fs/file/get', 'get', data)
 
 // mongo
 export const login = (data) => request('/mongo/user/login', data)
