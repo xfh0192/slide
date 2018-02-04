@@ -21,6 +21,8 @@ export const loginUser = (data) => request('/sql/user/login', 'post', data)
 export const setFile = (data) => request('/fs/file/set', 'post', data)
 // 获取某一个文件
 export const getFile = (data) => request('/fs/file/get', 'get', data)
+// 获取文件列表
+export const getFileList = (data) => request('/fs/file/list/get', 'get', data)
 
 // mongo
 export const login = (data) => request('/mongo/user/login', data)

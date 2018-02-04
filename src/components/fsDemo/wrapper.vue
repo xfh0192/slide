@@ -49,6 +49,7 @@
             </ul>
         </div>
 
+        <!-- http://element-cn.eleme.io/#/zh-CN/component/transfer -->
         <div class='transfer'>
             <el-transfer v-model='transferData' :data='tableData'></el-transfer>
         </div>
@@ -56,7 +57,7 @@
 </template>
 
 <script>
-import {setFile, getFile} from '@/assets/js/service'
+import {setFile, getFile, getFileList} from '@/assets/js/service'
 
 export default {
     data () {
@@ -74,7 +75,8 @@ export default {
                 content: this.content
             }
             try {
-                this.tableData = await setFile(postData)
+                let data = await setFile(postData)
+                this.tableData = data.rows || []
             } catch (err) {
                 console.log(err)
             }
@@ -86,13 +88,28 @@ export default {
             try {
                 let res = await getFile(data);
                 this.content = res.content || '';
+
+                // 20180204 改为每次保存之后，返回文件列表
+
             } catch (err) {
                 console.log(err)
             }
+        },
+        getFileList () {
+            new Promise((resolve, reject) => {
+                resolve(getFileList())
+            })
+            .then((data) => {
+                console.log(data)
+                this.tableData = data.rows|| []
+            })
+            .catch((err) => {
+                console.log(err);
+            })
         }
     },
     mounted () {
-
+        this.getFileList()
     }
 }
 </script>
