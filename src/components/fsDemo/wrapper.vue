@@ -45,6 +45,8 @@
                 </li>
                 <li>
                     <el-button @click='getFile'>读取文件</el-button>
+                    <el-button @click='removeFile'>删除文件</el-button>
+                    <el-button @click='clearDir'>删除所有文件</el-button>
                 </li>
             </ul>
         </div>
@@ -57,7 +59,7 @@
 </template>
 
 <script>
-import {setFile, getFile, getFileList} from '@/assets/js/service'
+import {setFile, getFile, getFileList, removeFile, clearDir} from '@/assets/js/service'
 
 export default {
     data () {
@@ -95,8 +97,8 @@ export default {
                 console.log(err)
             }
         },
-        getFileList () {
-            new Promise((resolve, reject) => {
+        async getFileList () {
+            await new Promise((resolve, reject) => {
                 resolve(getFileList())
             })
             .then((data) => {
@@ -106,6 +108,14 @@ export default {
             .catch((err) => {
                 console.log(err);
             })
+        },
+        async removeFile() {
+            let data = await removeFile({fileName: this.fileName})
+            this.tableData = data.rows || []
+        },
+        async clearDir() {
+            let data = await clearDir()
+            this.tableData = data.rows || []
         }
     },
     mounted () {
