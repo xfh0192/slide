@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name: 'menu',
+    // name: 'menu',
     data () {
         return {
             menus: [

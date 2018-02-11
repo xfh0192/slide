@@ -55,11 +55,24 @@
         <div class='transfer'>
             <el-transfer v-model='transferData' :data='tableData'></el-transfer>
         </div>
+
+        <div class='edit'>
+            <ul>
+                <li>
+                    <input id='uploader' type='file'/>
+                </li>
+                <li>
+                    <el-button @click='uploadImg'>上传图片</el-button>
+                </li>
+            </ul>
+        </div>
+        
     </div>
 </template>
 
 <script>
 import {setFile, getFile, getFileList, removeFile, clearDir} from '@/assets/js/service'
+import mixin from './uploader'
 
 export default {
     data () {
@@ -70,6 +83,7 @@ export default {
             content: ''
         }
     },
+    mixins: [mixin],
     methods: {
         async setFile () {
             let postData = {
@@ -116,7 +130,8 @@ export default {
         async clearDir() {
             let data = await clearDir()
             this.tableData = data.rows || []
-        }
+        },
+    
     },
     mounted () {
         this.getFileList()
@@ -133,7 +148,7 @@ export default {
     margin: 50px;
     padding: 50px;
     border: 1px solid #eee;
-    float: left;
+    // float: left;
     width: 500px;
 }
 </style>
