@@ -44,6 +44,11 @@ let router = new Router({
       component: () => import('../components/fsDemo/wrapper')
     },
     {
+      path: '/observer',
+      name: 'observer',
+      component: () => import('../components/observerMode/wrapper')
+    },
+    {
       path: '/mongo/demo',
       name: 'mongoLogin',
       component: () => import('../components/loginDemo/wrapper'),

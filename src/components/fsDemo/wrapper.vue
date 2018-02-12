@@ -73,6 +73,7 @@
 <script>
 import {setFile, getFile, getFileList, removeFile, clearDir} from '@/assets/js/service'
 import mixin from './uploader'
+import mediator from '../observerMode/mediator'
 
 export default {
     data () {
@@ -135,6 +136,7 @@ export default {
     },
     mounted () {
         this.getFileList()
+        mediator.trigger('click')
     }
 }
 </script>

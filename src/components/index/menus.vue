@@ -29,6 +29,7 @@ export default {
                 {name: 'cssDemo', to: 'cssDemo'},
                 {name: 'sqlDemo', to: 'sqlDemo'},
                 {name: 'fsDemo', to: 'fsDemo'},
+                {name: 'observer', to: 'observer'},
                 {name: 'mongoLogin', to: 'mongoLogin'}
             ]
         }

@@ -7,6 +7,7 @@ class File {
     constructor (file) {
         this.file = file
         this.type = 'image'
+        this.length = file.length || 0
         
     }
 }
