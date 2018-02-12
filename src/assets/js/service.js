@@ -29,6 +29,6 @@ export const removeFile = (data) => request('/fs/file/remove', 'post', data)
 export const clearDir = (data) => request('/fs/file/dir/clear', 'post', data)
 
 // mongo
-export const login = (data) => request('/mongo/user/login', data)
+export const login = (data) => request('/mongo/user/login', 'post', data)
 
-export const regist = (data) => request('/mongo/user/regist', data)
+export const regist = (data) => request('/mongo/user/regist', 'post', data)
