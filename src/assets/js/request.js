@@ -4,7 +4,7 @@ import axios from 'axios'
 import {baseUrl} from './env'
 import h from './base'
 
-export default async (url = '', method = 'get', data = {}) => {
+export default async (url = '', method = 'get', data = {}, options = {}) => {
     console.log(method + ":" + url)
     // 拼装基本路径
     url = baseUrl + url
@@ -26,7 +26,7 @@ export default async (url = '', method = 'get', data = {}) => {
     // https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch
     if (window.fetch) {
         console.log('fetch is working')
-        let requestConfig = {
+        let requestConfig = Object.assign({
             // 带上cookie 
             credentials: 'include',
 
@@ -37,7 +37,7 @@ export default async (url = '', method = 'get', data = {}) => {
             },
             mode: 'cors'
             // cache: 'force-cache'
-        }
+        }, options)
 
         if (method == 'post') {
             // Object.defineProperty(requestConfig, 'body', {
