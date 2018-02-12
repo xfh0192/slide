@@ -4,6 +4,7 @@
  */
 
 import File from './file'
+import {uploadBuffer} from '@/assets/js/service'
 
 // 20180211 利用blob类型，尝试做分片上传处理
 let mixin = {
@@ -14,16 +15,25 @@ let mixin = {
             let img = input.files[0] || {};                     // 文件
             // let type = img.type || '';                          // 文件类型
             // let isImg = /image\/(jp?eg|png|gif)/i.test(type);   // 检查是否图片
-            let file = new File(img);
-            console.log(`uploadImg:`, img)
+            let file = await new File(img);
+            console.log(`uploadImg:`, file)
 
             // 检查文件类型
-            if (!type) {
+            if (!file.type) {
                 alert('请上传 jpeg/jpg/png/gif 类型的文件');
                 return;
             }
 
+            await uploadBuffer(file.buffer, {'Content-Type': 'application/octet-stream'})
             
+        },
+        async showfile () {
+            let input = document.querySelector('#uploader');    // v-model 不支持file，只能取dom
+            let img = input.files[0] || {};                     // 文件
+
+            let file = await new File(img);
+
+            console.log(file);
         }
     }
 }

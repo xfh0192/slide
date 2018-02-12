@@ -64,6 +64,9 @@
                 <li>
                     <el-button @click='uploadImg'>上传图片</el-button>
                 </li>
+                <li>
+                    <el-button @click='showfile'>show</el-button>
+                </li>
             </ul>
         </div>
         
@@ -136,7 +139,7 @@ export default {
     },
     mounted () {
         this.getFileList()
-        mediator.trigger('click')
+        // mediator.trigger('click')
     }
 }
 </script>

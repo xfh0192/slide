@@ -27,6 +27,8 @@ export const getFileList = (data) => request('/fs/file/list/get', 'get', data)
 export const removeFile = (data) => request('/fs/file/remove', 'post', data)
 // 删除所有文件
 export const clearDir = (data) => request('/fs/file/dir/clear', 'post', data)
+// 上传一张图片（二进制数据）
+export const uploadBuffer = (data, options) => request('/buffer/image/upload', 'post', data, options)
 
 // mongo
 export const login = (data) => request('/mongo/user/login', 'post', data)
