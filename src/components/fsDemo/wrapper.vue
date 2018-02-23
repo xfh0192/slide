@@ -70,6 +70,8 @@
             </ul>
         </div>
         
+        <img id='showImg'/>
+        <canvas id='cvs'></canvas>
     </div>
 </template>
 
